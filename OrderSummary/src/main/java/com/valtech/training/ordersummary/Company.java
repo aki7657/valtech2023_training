@@ -20,7 +20,7 @@ public class Company {
 	private String companyName;
 	private String companyAddress;
 	
-	@OneToMany(targetEntity = Items.class, cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = Items.class, cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.LAZY, mappedBy = "company")
 	private Set<Items> items;
 
 	public Company() {
