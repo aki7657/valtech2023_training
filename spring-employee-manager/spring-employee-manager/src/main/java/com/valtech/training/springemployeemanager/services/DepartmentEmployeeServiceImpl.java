@@ -16,7 +16,7 @@ import com.valtech.training.springemployeemanager.repositories.EmployeeRepositor
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-public class DepartmentEmployeeServiceImpl implements DepartmentEmployeeService{
+public class DepartmentEmployeeServiceImpl implements DepartmentEmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -29,32 +29,30 @@ public class DepartmentEmployeeServiceImpl implements DepartmentEmployeeService{
 //		departmentRepository.save(department1);
 //	}
 
-	@Override
 	@PostConstruct
 	public void populateDepartmentAndEmployees() {
 		Department department1 = new Department("Human Resources", "Ground Floor");
-		departmentRepository.save(department1);
 		Department department2 = new Department("Finance", "First Floor");
-		departmentRepository.save(department2);
 
 		Employee employee1 = new Employee("Akhil", 22, 1, 1, 700000);
-		employeeRepository.save(employee1);
 		Employee employee2 = new Employee("Murali", 22, 1, 1, 700000);
-		employeeRepository.save(employee2);
 		Employee employee3 = new Employee("Chandana", 22, 1, 1, 700000);
-		employeeRepository.save(employee3);
 		Employee employee4 = new Employee("Richa", 22, 1, 1, 700000);
-		employeeRepository.save(employee4);
 
+		
+
+		employeeRepository.save(employee1);
+		employeeRepository.save(employee2);
+		employeeRepository.save(employee3);
+		employeeRepository.save(employee4);
+		
 		employee1.setDepartment(department1);
 		employee2.setDepartment(department1);
 		employee3.setDepartment(department2);
 		employee4.setDepartment(department2);
 
-		employeeRepository.save(employee1);
-		employeeRepository.save(employee2);
-		employeeRepository.save(employee3);
-		employeeRepository.save(employee4);
+		departmentRepository.save(department1);
+		departmentRepository.save(department2);
 
 	}
 

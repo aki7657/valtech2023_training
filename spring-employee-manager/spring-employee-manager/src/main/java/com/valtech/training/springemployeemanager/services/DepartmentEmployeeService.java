@@ -9,7 +9,6 @@ import com.valtech.training.springemployeemanager.entities.Employee;
 
 public interface DepartmentEmployeeService {
 
-	void populateDepartmentAndEmployees();
 
 	Employee createEmployee(Employee employees);
 

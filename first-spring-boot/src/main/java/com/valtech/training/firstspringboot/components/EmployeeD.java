@@ -27,7 +27,7 @@ public class EmployeeD {
 				+ seniority + ", salary=" + salary + ", deptId=" +  deptId + "]";
 	}
 	
-	public EmployeeD(int id, String name, int age, int experience, int seniority, int salary) {
+	public EmployeeD(int id, String name, int age, int experience, int seniority, int salary, int deptId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,7 +35,9 @@ public class EmployeeD {
 		this.experience = experience;
 		this.seniority = seniority;
 		this.salary = salary;
+		this.deptId = deptId;
 	}
+
 	public int getId() {
 		return id;
 	}

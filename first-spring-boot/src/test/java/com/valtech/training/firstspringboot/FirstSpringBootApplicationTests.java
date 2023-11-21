@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.valtech.training.firstspringboot.components.EmployeeD;
 import com.valtech.training.firstspringboot.components.EmployeeDAO;
 import com.valtech.training.firstspringboot.components.HelloWorld;
 import com.valtech.training.firstspringboot.components.SimpleInterest;
@@ -23,11 +24,11 @@ class FirstSpringBootApplicationTests {
 	private HelloWorld helloWorld;
 
 	@Autowired
-	EmployeeDAO employeeDAO;
+	private EmployeeDAO employeeDAO;
 
 	@Autowired
 	private OrderService orderService;
-	
+
 //	@Autowired
 //	private SimpleInterest simpleInterest;
 //	
@@ -48,6 +49,9 @@ class FirstSpringBootApplicationTests {
 	void testEmployeeDao() {
 		assertEquals(4, employeeDAO.countEmployee());
 		assertEquals(4, employeeDAO.getAllEmployees().size());
+		System.out.println(employeeDAO.getAllEmployees());
+		EmployeeD d = new EmployeeD(4, "Richa", 22, 1, 1, 700000, 4);
+		employeeDAO.updateEmployee(d);
 	}
 
 	@Test

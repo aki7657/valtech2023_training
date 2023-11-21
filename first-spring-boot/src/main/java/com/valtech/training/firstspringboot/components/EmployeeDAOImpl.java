@@ -59,7 +59,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	// Read Operation (R)
 	@Override
 	public List<EmployeeD> getAllEmployees() {
-		String selectAllQuery = "SELECT ID,NAME,AGE,EXPERIENCE,SENIORITY,SALARY,DEPTID FROM EMPLOYEE";
+//		String selectAllQuery = "SELECT ID,NAME,AGE,EXPERIENCE,SENIORITY,SALARY,DEPTID FROM EMPLOYEE";
+		String selectAllQuery = "SELECT * FROM EMPLOYEE";
 		return new JdbcTemplate(dataSource).query(selectAllQuery, new EmployeeRowMapper());
 	}
 
@@ -68,7 +69,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public void updateEmployee(EmployeeD emp) {
 		String updateQry = "UPDATE EMPLOYEE SET NAME=?,AGE=?,EXPERIENCE=?,SENIORITY=?,SALARY=?,DEPTID=? WHERE ID=?";
 		new JdbcTemplate(dataSource).update(updateQry, emp.getName(), emp.getAge(), emp.getExperience(),
-				emp.getSeniority(), emp.getSalary(), emp.getDeptId());
+				emp.getSeniority(), emp.getSalary(), emp.getDeptId(), emp.getId());
 	}
 
 	// Delete operation (D)
@@ -125,4 +126,5 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
